@@ -51,7 +51,14 @@ public class MainActivity extends AppCompatActivity {
         // Intent 物件
         Intent intent = new Intent(this,
                 ResultActivity.class);
+        // Bundle
+        Bundle bag = new Bundle();
+        bag.putFloat("EXTRA_BMI", bmi);
+        bag.putString("EXTRA_NAME", "Tom");
+        intent.putExtras(bag);
+        /*
         intent.putExtra("EXTRA_BMI", bmi);
+        intent.putExtra("EXTRA_NAME", "Tom");*/
         startActivity(intent);
 
 //        showDialog(bmi);
