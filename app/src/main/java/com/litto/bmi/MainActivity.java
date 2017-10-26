@@ -1,5 +1,6 @@
 package com.litto.bmi;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,10 +48,13 @@ public class MainActivity extends AppCompatActivity {
         float weight = Float.parseFloat(edWeight.getText().toString());
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight / (height*height);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.bmi_dialog_title)
-                .setMessage(getString(R.string.your_bmi_is) + bmi)
-                .show();
+        // Intent 物件
+        Intent intent = new Intent(this,
+                ResultActivity.class);
+        intent.putExtra("EXTRA_BMI", bmi);
+        startActivity(intent);
+
+//        showDialog(bmi);
 //        AlertDialog.Builder builder =  new AlertDialog.Builder(this);
 //        builder.setTitle("My Title");
 //        builder.setMessage("BMI is " + bmi);
@@ -61,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("MainActivity", "bmi: " + bmi);
 //        Toast.makeText(this, "BMI is:" + bmi,
 //                Toast.LENGTH_LONG).show();
+    }
+
+    private void showDialog(float bmi) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.bmi_dialog_title)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)
+                .show();
     }
 }
 
