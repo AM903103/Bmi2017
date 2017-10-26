@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">我愛Bmi</string>
+    <string name="weight">體重</string>
+    <string name="height">身高(公尺)</string>
+    <string name="your_bmi_is">您的BMI值為</string>
+</resources>

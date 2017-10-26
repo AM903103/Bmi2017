@@ -8,7 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    String s = new String("aaa");
+    View.OnClickListener myListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
+        }
+    };
     private EditText edWeight;
     private EditText edHeight;
     private Button bHelp;
@@ -16,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main2);
+        setContentView(R.layout.activity_main);
         findViews();
     }
 
@@ -30,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("HAHA")
                         .setMessage("jhjwjwjwjw")
+                        .setPositiveButton("OK", null)
+                        .setNegativeButton("Cancel", null)
                         .show();
             }
         });
@@ -40,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight / (height*height);
         new AlertDialog.Builder(this)
-                .setTitle("My Title")
-                .setMessage("BMI is " + bmi)
+                .setTitle(R.string.bmi_dialog_title)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)
                 .show();
 //        AlertDialog.Builder builder =  new AlertDialog.Builder(this);
 //        builder.setTitle("My Title");
